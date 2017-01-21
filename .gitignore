@@ -50,3 +50,7 @@ target/
 # Figwheel
 #
 figwheel_server.log
+
+#vi
+*.swp
+*~

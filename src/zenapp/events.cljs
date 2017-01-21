@@ -20,6 +20,15 @@
     (after (partial check-and-throw ::db/app-db))
     []))
 
+;;axios
+(def axios (js/require "axios"))
+;;sample
+;;(-> (.get axios "http://rallycoding.herokuapp.com/api/music_albums")
+;;       (.then #(as-> (.-data %) $
+;;                   (js->clj $ :keywordize-keys true)
+;;                   (dispatch [:set-album-list $]))))
+
+
 ;; -- Handlers --------------------------------------------------------------
 
 (reg-event-db

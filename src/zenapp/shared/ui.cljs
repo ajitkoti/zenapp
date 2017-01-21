@@ -1,7 +1,10 @@
 (ns zenapp.shared.ui
   (:require [reagent.core :as r :refer [atom]]
-            [zenapp.shared.reactcomponents :refer [view text image touchable-highlight]]
+            [zenapp.shared.reactcomponents :refer [view text image touchable-highlight alert]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]))
+
+(defn show-alert [title]
+      (.alert alert title))
 
 (defn app-component []
   (let [greeting (subscribe [:get-greeting])]
@@ -11,5 +14,5 @@
        [image {:source logo-img
                :style  {:width 80 :height 80 :margin-bottom 30}}]
        [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
-                             :on-press #(alert "HELLO!")}
+                             :on-press #(show-alert "HELLO!")}
         [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "press me"]]])))
