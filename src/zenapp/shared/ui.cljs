@@ -7,12 +7,11 @@
       (.alert alert title))
 
 (defn app-component []
-  (let [greeting (subscribe [:get-greeting])]
+  (let [my-location (subscribe [:get-my-location])]
     (fn []
       [view {:style {:flex-direction "column" :margin 40 :align-items "center"}}
-       [text {:style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"}} @greeting]
-       [image {:source logo-img
-               :style  {:width 80 :height 80 :margin-bottom 30}}]
+       [text {:style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"}} (str "latitude" (:latitude @my-location))]
+       [text {:style {:font-size 30 :font-weight "100" :margin-bottom 20 :text-align "center"}} (str "longitude" (:longitude @my-location))]
        [touchable-highlight {:style {:background-color "#999" :padding 10 :border-radius 5}
                              :on-press #(show-alert "HELLO!")}
         [text {:style {:color "white" :text-align "center" :font-weight "bold"}} "press me"]]])))

@@ -1,6 +1,6 @@
 (ns zenapp.events
   (:require
-   [re-frame.core :refer [reg-event-db after]]
+   [re-frame.core :refer [reg-event-db after dispatch]]
    [clojure.spec :as s]
    [zenapp.db :as db :refer [app-db]]))
 
@@ -30,15 +30,18 @@
 
 
 ;; -- Handlers --------------------------------------------------------------
+(reg-event-db
+ :set-position
+ (fn [db [_ value]]
+   (assoc db :my-location (:coords value))))
 
 (reg-event-db
  :initialize-db
- validate-spec
  (fn [_ _]
+   (.getCurrentPosition navigator.geolocation
+                         #(dispatch [:set-position (js->clj % :keywordize-keys true)])
+                         #(js/console.log "Error getting position" %)
+                         (clj->js {:enableHighAccuracy false :timeout 20000, :maximumAge 1000}))
    app-db))
 
-(reg-event-db
- :set-greeting
- validate-spec
- (fn [db [_ value]]
-   (assoc db :greeting value)))
+

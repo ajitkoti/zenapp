@@ -2,6 +2,6 @@
   (:require [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
-  :get-greeting
+  :get-my-location
   (fn [db _]
-    (:greeting db)))
+    (:my-location db)))
