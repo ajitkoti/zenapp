@@ -1,6 +1,7 @@
 (ns zenapp.events
   (:require
    [re-frame.core :refer [reg-event-db after dispatch]]
+   [zenapp.shared.firebase :as firebase]
    [clojure.spec :as s]
    [zenapp.db :as db :refer [app-db]]))
 
@@ -42,6 +43,7 @@
                          #(dispatch [:set-position (js->clj % :keywordize-keys true)])
                          #(js/console.log "Error getting position" %)
                          (clj->js {:enableHighAccuracy false :timeout 20000, :maximumAge 1000}))
-   app-db))
+   (js/console.log (clj->js firebase/firebase))
+  app-db  ))
 
 

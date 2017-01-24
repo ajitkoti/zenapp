@@ -10,5 +10,5 @@
   (app-component))
 
 (defn init []
-      (dispatch-sync [:initialize-db])
+  (dispatch-sync [:initialize-db])
       (.registerComponent app-registry "zenapp" #(r/reactify-component app-root)))
