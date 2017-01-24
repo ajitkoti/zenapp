@@ -8,7 +8,8 @@
     "prod": "env/prod"
   },
   "modules": [
-    "axios"
+    "axios",
+    "react-native-maps"
   ],
   "imageDirs": [
     "images"

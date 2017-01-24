@@ -10,7 +10,8 @@
     "axios": "^0.15.3",
     "babel-plugin-transform-es2015-block-scoping": "6.15.0",
     "react": "15.4.1",
-    "react-native": "0.39.0"
+    "react-native": "0.39.0",
+    "react-native-maps": "^0.12.4"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",
