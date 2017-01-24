@@ -53,4 +53,5 @@ figwheel_server.log
 
 #vi
 *.swp
+*.swo
 *~
