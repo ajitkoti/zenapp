@@ -2,6 +2,7 @@
   (:require [reagent.core :as r]))
 
 (def ReactNative (js/require "react-native"))
+(def MapView (js/require "react-native-maps"))
 
 (def app-registry (.-AppRegistry ReactNative))
 (def text (r/adapt-react-class (.-Text ReactNative)))
@@ -9,3 +10,6 @@
 (def image (r/adapt-react-class (.-Image ReactNative)))
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight ReactNative)))
 (def alert (.-Alert ReactNative))
+(def mapview (r/adapt-react-class MapView))
+
+(js/console.log "++++++ytoyoyoyoyoyoyoyoyoyoyoy" MapView)

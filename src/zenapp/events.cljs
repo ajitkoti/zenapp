@@ -43,7 +43,6 @@
                          #(dispatch [:set-position (js->clj % :keywordize-keys true)])
                          #(js/console.log "Error getting position" %)
                          (clj->js {:enableHighAccuracy false :timeout 20000, :maximumAge 1000}))
-   (js/console.log (clj->js firebase/firebase))
   app-db  ))
 
 
