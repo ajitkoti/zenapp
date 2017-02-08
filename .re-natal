@@ -10,7 +10,8 @@
   "modules": [
     "axios",
     "react-native-maps",
-    "firebase"
+    "firebase",
+    "geofire"
   ],
   "imageDirs": [
     "images"

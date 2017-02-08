@@ -33,13 +33,16 @@
 ;; -- Handlers --------------------------------------------------------------
 (reg-event-db
  :set-position
- (fn [db [_ value]]
-   (assoc db :my-location (:coords value))))
+ (fn [db [_ {:keys [coords]} ]]
+   (let [{:keys [latitude longitude]} coords]
+   (js/console.log "set " (clj->js [latitude longitude]))
+     (.set firebase/geofire "ajitkoti" (clj->js  [latitude longitude])))
+   (assoc db :my-location coords)))
 
 (reg-event-db
  :initialize-db
  (fn [_ _]
-   (.getCurrentPosition navigator.geolocation
+   (.watchPosition navigator.geolocation
                          #(dispatch [:set-position (js->clj % :keywordize-keys true)])
                          #(js/console.log "Error getting position" %)
                          (clj->js {:enableHighAccuracy false :timeout 20000, :maximumAge 1000}))
