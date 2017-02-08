@@ -11,5 +11,6 @@
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight ReactNative)))
 (def alert (.-Alert ReactNative))
 (def mapview (r/adapt-react-class MapView))
+(def mapview-marker (r/adapt-react-class (.-Marker MapView)))
+(def scrollview (r/adapt-react-class (.-ScrollView ReactNative)))
 
-(js/console.log "++++++ytoyoyoyoyoyoyoyoyoyoyoy" MapView)
