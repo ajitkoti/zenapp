@@ -3,6 +3,7 @@
 
 (def ReactNative (js/require "react-native"))
 (def MapView (js/require "react-native-maps"))
+(def FBSDK (js/require "react-native-fbsdk"))
 
 (def app-registry (.-AppRegistry ReactNative))
 (def text (r/adapt-react-class (.-Text ReactNative)))
@@ -13,4 +14,6 @@
 (def mapview (r/adapt-react-class MapView))
 (def mapview-marker (r/adapt-react-class (.-Marker MapView)))
 (def scrollview (r/adapt-react-class (.-ScrollView ReactNative)))
+(def fb-login-button (r/adapt-react-class (.-LoginButton FBSDK)))
+(def fb-access-token (r/adapt-react-class (.-AccessToken FBSDK)))
 

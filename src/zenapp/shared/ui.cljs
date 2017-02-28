@@ -1,6 +1,7 @@
 (ns zenapp.shared.ui
   (:require [reagent.core :as r :refer [atom]]
             [zenapp.shared.reactcomponents :refer [view text image touchable-highlight alert mapview mapview-marker]]
+            [zenapp.shared.login :refer [login-view]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]))
 
 (defn populate-neighbours
@@ -36,4 +37,6 @@
   )
 
 (defn app-component []
-  [map-view])
+  #_[map-view]
+  [login-view]
+  )

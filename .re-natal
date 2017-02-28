@@ -11,7 +11,8 @@
     "axios",
     "react-native-maps",
     "firebase",
-    "geofire"
+    "geofire",
+    "react-native-fbsdk"
   ],
   "imageDirs": [
     "images"
