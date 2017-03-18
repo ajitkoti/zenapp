@@ -1,5 +1,6 @@
 (ns zenapp.screen.login
-  (:require [zenapp.shared.reactcomponents :refer [view alert fb-login-button fb-access-token]]))
+  (:require [zenapp.shared.reactcomponents :refer [view alert fb-login-button fb-access-token]]
+            [zenapp.screen.navigation :refer [nav-wrapper]]))
 
 (defn get-access-token
   [success-response]
@@ -19,12 +20,16 @@
 (defn login-view
   []
   (fn []
-    [view ]
     [fb-login-button  {:publish-permissions ["publish_actions"]
                        :on-login-finished login-finished
                        :on-logout-finished logout-finished}]) )
 
+(def navigation-options
+  {:drawer (fn []
+             {:label "Login"})})
 
+(def navigable-login-view
+  (nav-wrapper login-view navigation-options))
 
 
 

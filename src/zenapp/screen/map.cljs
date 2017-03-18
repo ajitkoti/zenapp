@@ -1,5 +1,6 @@
 (ns zenapp.screen.map
   (:require [zenapp.shared.reactcomponents :refer [view text image touchable-highlight alert mapview mapview-marker]]
+            [zenapp.screen.navigation :refer [nav-wrapper]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]))
 
 (defn populate-neighbours
@@ -13,11 +14,11 @@
 
   )
 
-(defn show-alert [title]
+(defn svWrahow-alert [title]
       (.alert alert title))
 
 (defn map-view
-  []
+  [props]
   (let [my-location (subscribe [:get-my-location])
         delta (subscribe [:get-delta])
         neighbor-locations (subscribe [:get-neighbor-locations]) ]
@@ -33,3 +34,10 @@
                    :region {:latitude latitude  :longitude longitude  :latitude-delta delta-lat :longitude-delta delta-lng}}
           [mapview-marker {:coordinate {:latitude latitude :longitude longitude}}]]])))
   )
+
+(def navigation-options
+  {:drawer (fn []
+             {:label "Nearby"})})
+#_(js/console.log (nav-wrapper map-view "Nearby"))
+(def navigable-map-view
+  (nav-wrapper map-view navigation-options))

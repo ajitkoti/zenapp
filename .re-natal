@@ -12,7 +12,8 @@
     "react-native-maps",
     "firebase",
     "geofire",
-    "react-native-fbsdk"
+    "react-native-fbsdk",
+    "react-navigation"
   ],
   "imageDirs": [
     "images"

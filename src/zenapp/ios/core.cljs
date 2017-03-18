@@ -4,10 +4,11 @@
             [zenapp.events]
             [zenapp.subs]
             [zenapp.shared.reactcomponents :refer [app-registry]]
-            [zenapp.shared.ui :refer [app-component]]))
+            [zenapp.screen.app :refer [app-component]]))
 
 (defn app-root []
-  (app-component))
+  (fn []
+    [app-component]))
 
 (defn init []
       (dispatch-sync [:initialize-db])
