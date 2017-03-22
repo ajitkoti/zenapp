@@ -17,11 +17,13 @@
 
 (defn fb-credential
   [access-token]
+  (js/console.log access-token)
   (-> firebase-def .-auth .-FacebookAuthProvider (.credential access-token)))
 
 (defn firebase-fb-signin
   [access-token]
-  (-> firebase-auth (.signWithCredential (fb-credentail .toString access-token)))
+  (js/console.log (fb-credential access-token))
+  (-> firebase-auth (.signInWithCredential (fb-credential access-token)))
 
   )
 (js/console.log "+++++++++++++"  (fb-credential "abcde"))

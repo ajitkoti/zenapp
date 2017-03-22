@@ -12,10 +12,10 @@
 (defn login-finished
   [error result]
   (cond
-   error  (js/console.log "this is error") #_(.alert alert (str "login has error " (.-error result)))
-   #_(.isCancelled result) #_(js/console.log "loginn is cancelled")
-   :else (-> (.getCurrentAccessToken fb-access-token)
-             (.then  firebase/firebase-fb-signin get-access-token ))))
+    error  (js/console.log "this is error") #_(.alert alert (str "login has error " (.-error result)))
+    #_(.isCancelled result) #_(js/console.log "loginn is cancelled")
+    :else (-> (.getCurrentAccessToken fb-access-token)
+              (.then  #(firebase/firebase-fb-signin (get-access-token %)) ))))
 
 (defn login-view
   []
