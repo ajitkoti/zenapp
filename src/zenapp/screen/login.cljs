@@ -1,6 +1,6 @@
-(ns zenapp.screen.login
+(ns zenapp.shared.login
   (:require [zenapp.shared.reactcomponents :refer [view alert fb-login-button fb-access-token]]
-            [zenapp.screen.navigation :refer [nav-wrapper]]))
+            [zenapp.shared.firebase :as firebase]))
 
 (defn get-access-token
   [success-response]
@@ -15,7 +15,7 @@
     error  (js/console.log "this is error") #_(.alert alert (str "login has error " (.-error result)))
     #_(.isCancelled result) #_(js/console.log "loginn is cancelled")
     :else (-> (.getCurrentAccessToken fb-access-token)
-              (.then get-access-token #(js/console.log %)))))
+              (.then  #(firebase/firebase-fb-signin (get-access-token %)) ))))
 
 (defn login-view
   []
@@ -30,6 +30,3 @@
 
 (def navigable-login-view
   (nav-wrapper login-view navigation-options))
-
-
-
