@@ -5,7 +5,7 @@
   (let [opts (clj->js nav-options)
         comp (r/reactify-component
                (fn [{:keys [navigation]}]
-                 [component (-> navigation .-state js->clj)]))]
+                 [component navigation]))]
     (aset comp "navigationOptions" opts)
     comp))
 

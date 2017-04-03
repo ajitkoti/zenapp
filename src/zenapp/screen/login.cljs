@@ -7,8 +7,8 @@
   [success-response]
   (let [access-token (.. success-response -accessToken)]
     (js/console.log "callback?")
-    (js/console.log (.toString access-token))
-    (.toString access-token)))
+    (js/console.log (.toString access-token)
+    (.toString access-token))))
 
 (defn login-finished
   [error result]
@@ -22,6 +22,7 @@
   []
   (fn []
     [fb-login-button  {:publish-permissions ["publish_actions"]
+                       :permissions  ["email", "user_friends"]
                        :on-login-finished login-finished
                        :on-logout-finished logout-finished}]) )
 

@@ -14,6 +14,7 @@
 (def view (r/adapt-react-class (.-View ReactNative)))
 (def image (r/adapt-react-class (.-Image ReactNative)))
 (def touchable-highlight (r/adapt-react-class (.-TouchableHighlight ReactNative)))
+(def touchable-opacity (r/adapt-react-class (.-TouchableOpacity ReactNative)))
 (def alert (.-Alert ReactNative))
 (def mapview (r/adapt-react-class MapView))
 (def mapview-marker (r/adapt-react-class (.-Marker MapView)))

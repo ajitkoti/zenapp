@@ -21,9 +21,12 @@
 
 (defn firebase-fb-signin
     [access-token]
-      (js/console.log  (fb-credential access-token))
-        (-> firebase-auth  (.signInWithCredential  (fb-credential access-token))))
+        (-> firebase-auth
+            (.signInWithCredential  (fb-credential access-token))))
 
-(js/console.log "+++++++++++++"  (fb-credential "abcde"))
+
+#_(js/console.log "+++++++++++++"  (fb-credential "abcde"))
 #_(js/console.log "+++++++++++++"  (-> firebase-auth (.signInWithCredential (fb-credential "abcde"))))
 
+(-> firebase-auth
+    (.onAuthStateChanged (fn [user]  (js/console.log "Hello User " (.-emailVerified user)))))
