@@ -15,7 +15,7 @@
                                     ["with-profile" "prod" "cljsbuild" "once" ]]}
             :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.8"]
                                             [com.cemerick/piggieback "0.2.1"]]
-                             :source-paths ["src" "env/dev"]
+                             :source-paths ["src" "env/dev" "script"]
                              :cljsbuild    {:builds [{:id           "ios"
                                                       :source-paths ["src" "env/dev"]
                                                       :figwheel     true
