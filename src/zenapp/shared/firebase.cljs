@@ -28,5 +28,5 @@
 #_(js/console.log "+++++++++++++"  (fb-credential "abcde"))
 #_(js/console.log "+++++++++++++"  (-> firebase-auth (.signInWithCredential (fb-credential "abcde"))))
 
-(-> firebase-auth
+#_(-> firebase-auth
     (.onAuthStateChanged (fn [user]  (js/console.log "Hello User " (.-emailVerified user)))))

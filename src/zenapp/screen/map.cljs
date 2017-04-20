@@ -1,6 +1,6 @@
 (ns zenapp.screen.map
   (:require [zenapp.shared.reactcomponents :refer [view text image touchable-highlight alert mapview mapview-marker]]
-            [zenapp.shared.navbutton :refer [nav-button]]
+            [zenapp.shared.ui :refer [nav-button]]
             [zenapp.screen.navigation :refer [nav-wrapper]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]))
 
@@ -44,7 +44,7 @@
          [mapview {:zoom-enabled              true
                    :shows-user-location       true
                    :shows-my-location-button  true
-                   :on-region-change-complete #(js/console.log "REgion changed" %)
+                   :on-region-change-complete #(js/console.log "REGION changed" %)
                    :style                     (:full-screen-map styles)
                    :region                    {:latitude latitude :longitude longitude :latitude-delta delta-lat :longitude-delta delta-lng}}
           [mapview-marker {:coordinate {:latitude latitude :longitude longitude}}]]
