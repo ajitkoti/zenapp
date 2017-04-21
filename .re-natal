@@ -13,7 +13,8 @@
     "firebase",
     "geofire",
     "react-native-fbsdk",
-    "react-navigation"
+    "react-navigation",
+    "react-native-image-crop-picker"
   ],
   "imageDirs": [
     "images"

@@ -92,6 +92,7 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary true
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -126,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-crop-picker')
     compile project(':react-native-fbsdk')
     compile project(':react-native-maps')
     compile fileTree(dir: "libs", include: ["*.jar"])
