@@ -7,6 +7,7 @@
 (def MapView (js/require "react-native-maps"))
 (def FBSDK (js/require "react-native-fbsdk"))
 (def react-navigation (js/require "react-navigation"))
+(def CropImagePicker (js/require "react-native-image-crop-picker"))
 
 ;visual
 (def app-registry (.-AppRegistry ReactNative))
@@ -19,6 +20,8 @@
 (def mapview (r/adapt-react-class MapView))
 (def mapview-marker (r/adapt-react-class (.-Marker MapView)))
 (def scrollview (r/adapt-react-class (.-ScrollView ReactNative)))
+(def image-picker (.-default CropImagePicker))
+(js/console.log image-picker)
 
 (def dn (.-DrawerNavigator react-navigation))
 (defn drawer-navigator
